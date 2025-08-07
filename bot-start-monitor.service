@@ -1,0 +1,14 @@
+[Unit]
+Description=Fantasy Football Bot Start Command Monitor
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/fantasy_football_bot
+ExecStart=/usr/bin/python3 /home/ubuntu/fantasy_football_bot/monitor_start_command.py
+Restart=always
+RestartSec=300
+
+[Install]
+WantedBy=multi-user.target

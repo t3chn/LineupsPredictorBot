@@ -1,0 +1,17 @@
+[Unit]
+Description=Fantasy Football Bot Keep-Alive Monitor
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/fantasy_football_bot
+Environment=Telegram_Token=${TELEGRAM_BOT_TOKEN}
+ExecStart=/home/ubuntu/.pyenv/versions/3.12.8/bin/python /home/ubuntu/fantasy_football_bot/keep_bot_alive.py
+Restart=always
+RestartSec=30
+StandardOutput=append:/home/ubuntu/fantasy_football_bot/keepalive.log
+StandardError=append:/home/ubuntu/fantasy_football_bot/keepalive.log
+
+[Install]
+WantedBy=multi-user.target
